@@ -31,5 +31,46 @@ function displayWeather(city) {
          `;
         console.log(data);
    
+        var lat = data.coord.lat;
+        var lon = data.coord.lon;
+ 
+        fiveDayForcast(lat, lon);
+        //need to fetch call a different API to get the UI index, this API uses lat and long rather than city name
+        fetch(
+            `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&exclude=minutely,alerts&appid=${apiKey}`
+        )
+        .then(function (response) {
+            return response.json();
+        })
+        .then(function (uviData) {
+            todaysWeather.innerHTML += `<p>UV Index: ${uviData.current.uvi}</p>`;
+        });
+    });
+}
+
+function fiveDayForcast(lat, lon) {
+    fetch(
+      `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&exclude=minutely,alerts&units=imperial&appid=${apiKey}`
+    )
+      .then(function (response) {
+        return response.json();
+      })
+      .then(function (data) {
+        document.querySelector("#five-day-forecast").innerHTML = "";
+        for (var i = 0; i < 5; i++) {
+          document.querySelector("#five-day-forecast").innerHTML += `
+            <div class="card text-white bg-primary mb-3" style="max-width: 18rem;">
+            <div class="card-header">${moment
+                .unix(data.daily[i].dt)
+                .format("MM/DD/YYYY")} </div>
+            <div class="card-body">
+            <h5 class="card-title"><img src="http://openweathermap.org/img/wn/${
+                data.daily[i].weather[0].icon
+            }@2x.png" /> </h5>
+            <p class= "card-text"> Temp: ${data.daily[i].temp.day}</p>
+            <p class= "card-text"> Humidity: ${data.daily[i].humidity}</p>
+                </div>
+            `;
+        }
     });
 }
