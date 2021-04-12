@@ -84,5 +84,23 @@ function saveSearch(city) {
     cityArray.push(city);
   
     localStorage.setItem("cities", JSON.stringify(cityArray));
-    //TODO load and display saved searches
-  }
+    displaySavedSearches();
+}
+
+function displaySavedSearches() {
+    document.querySelector("#city-list").innerHTML = "";
+    var cityArray = JSON.parse(localStorage.getItem("cities"));
+    console.log(cityArray)
+    cityArray.forEach((city)=> {
+       document.querySelector("#city-list").innerHTML += `<li class="list-group-item city-list-item">${city}</li>`
+    }) 
+    document.querySelectorAll(".city-list-item").forEach((city) => {
+        city.addEventListener("click", function (event) {
+          event.preventDefault();
+          var city = this.textContent
+          displayWeather(city);
+        });
+    })
+}
+
+displaySavedSearches();
