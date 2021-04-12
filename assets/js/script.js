@@ -9,6 +9,7 @@ searchButtonEl.addEventListener("click", function (event) {
     const city = document.querySelector("#city-search").value.trim();
     console.log(city);
 
+    saveSearch(city)
     displayWeather(city);
 });
 
@@ -74,3 +75,14 @@ function fiveDayForcast(lat, lon) {
         }
     });
 }
+
+function saveSearch(city) {
+    if (!localStorage.getItem("cities")) {
+      localStorage.setItem("cities", JSON.stringify([]));
+    }
+    var cityArray = JSON.parse(localStorage.getItem("cities"));
+    cityArray.push(city);
+  
+    localStorage.setItem("cities", JSON.stringify(cityArray));
+    //TODO load and display saved searches
+  }
