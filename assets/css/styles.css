@@ -45,6 +45,10 @@
     background-size: cover;
 }
 
+.title {
+    font-weight: bold;
+}
+
 #error-message {
     color: rgb(209, 0, 0);
 }

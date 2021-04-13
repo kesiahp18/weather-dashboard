@@ -28,7 +28,7 @@ function displayWeather(city) {
       })
       .then(function (data) {
         todaysWeather.innerHTML = `
-          <h3>${data.name} (${date})</h3>
+          <h3 class="title center">Weather for ${data.name} ${date}</h3>
           <p>High: ${data.main.temp_max} F </p>
           <p>Low: ${data.main.temp_min} F </p>
           <p>Humidity: ${data.main.humidity}%</p>
