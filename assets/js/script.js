@@ -8,9 +8,14 @@ searchButtonEl.addEventListener("click", function (event) {
 
     const city = document.querySelector("#city-search").value.trim();
     console.log(city);
-
-    saveSearch(city)
-    displayWeather(city);
+    
+    if (city) {
+      saveSearch(city)
+      displayWeather(city);
+      document.getElementById('error-message').innerHTML = ``
+    } else {
+      document.getElementById('error-message').innerHTML += `<h5 class="center">Please enter a city name!</h5>`
+    }
 });
 
 function displayWeather(city) {
