@@ -3,39 +3,41 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Weather</title>
+    <title class="center">Weather</title>
 
     <link
       rel="stylesheet"
       href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
     />
+    <link rel="stylesheet" href="./assets/css/styles.css">
 </head>
-<body>
-    <header class="jumbotron">
+<body">
+    <header class="jumbotron blue-background">
         <h1>Weather Dashboard</h1>
     </header>
-    <div class="col-4">
-        <div class="search-container">
-            <h3>Search For a City:</h3>
+    <div class="greeting">
+        <div class="search-container center">
+            <h3 class="center">Search For a City:</h3>
             <input id="city-search" type="text">
-        <button type="button" id="searchButton" class="btn-primary">Search</button>
+            <button type="button" id="searchButton" class="btn-primary">Search</button>
         </div>
-        <container>
+        <container class="add-margin">
+            <h5 class="center">Previous Searches</h5>
             <ul id="search-history" class="list-group">
-                <li id="city-list"class="list-group-item">example</li>
+                <li id="city-list"class="list-group-item center">example</li>
             </ul>
         </container>
-     </div>
-     <div class="card">
+    </div>
+    <div class="card add-margin add-padding no-border">
         <h3 id="weather-report"></h3>
-     </div>
-     <div class="card">
-        <h5 id="five-day-forecast"></h5>
-     </div>
-     <div>
+    </div>
+    <div class="card add-margin no-border">
+        <h5 id="five-day-forecast" class="flex"></h5>
+    </div>
+    <div>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
          <script src="assets/js/script.js"></script>
-     </div>
+    </div>
 </body>
 </html>

@@ -60,11 +60,11 @@ function fiveDayForcast(lat, lon) {
         document.querySelector("#five-day-forecast").innerHTML = "";
         for (var i = 0; i < 5; i++) {
           document.querySelector("#five-day-forecast").innerHTML += `
-            <div class="card text-white bg-primary mb-3" style="max-width: 18rem;">
+            <div class="card text-white bg-primary mb-3 add-margin-s" style="max-width: 18rem;">
             <div class="card-header">${moment
                 .unix(data.daily[i].dt)
                 .format("MM/DD/YYYY")} </div>
-            <div class="card-body">
+            <div class="card-body blue-background">
             <h5 class="card-title"><img src="http://openweathermap.org/img/wn/${
                 data.daily[i].weather[0].icon
             }@2x.png" /> </h5>
@@ -92,7 +92,7 @@ function displaySavedSearches() {
     var cityArray = JSON.parse(localStorage.getItem("cities"));
     console.log(cityArray)
     cityArray.forEach((city)=> {
-       document.querySelector("#city-list").innerHTML += `<li class="list-group-item city-list-item">${city}</li>`
+       document.querySelector("#city-list").innerHTML += `<li class="flex city-list-item">${city}</li>`
     }) 
     document.querySelectorAll(".city-list-item").forEach((city) => {
         city.addEventListener("click", function (event) {

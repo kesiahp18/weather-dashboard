@@ -1,0 +1,52 @@
+.add-margin {
+    margin: 20px;
+}
+
+.add-margin-s {
+    margin: 5px;
+}
+
+.add-padding {
+    padding: 20px;
+}
+
+.flex {
+    display: flex;
+}
+
+.blue-background {
+    background-color: rgb(164, 204, 255);
+    color: black;
+    margin: 0;
+}
+
+.center {
+    text-align: center;
+    margin: auto;
+    width: 50%;
+}
+
+.no-border {
+    border: none;
+}
+
+.city-list-item {
+    padding: 5px;
+    border-radius: 10px;
+}
+
+.city-list-item:hover {
+    color:white;
+    background-color:rgb(164, 204, 255);
+}
+
+.greeting {
+    background-image: url('../img/image0.jpg');
+    background-size: cover;
+}
+
+@media all and (max-width: 700px) {
+    .flex {
+        flex-direction: column;
+    }
+}
