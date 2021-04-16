@@ -10,4 +10,4 @@ This application allows users to check the current and future weather conditions
 
 ## Preview
 Here is a screenshot of the appplication which can be accessed [here](https://kesiahp18.github.io/weather-dashboard/)
-![screenshot]('./assets/img/screenshot0.png')
+![screenshot](./assets/img/screenshot0.png)
