@@ -49,7 +49,15 @@ function displayWeather(city) {
             return response.json();
         })
         .then(function (uviData) {
-            todaysWeather.innerHTML += `<p>UV Index: ${uviData.current.uvi}</p>`;
+          if(uviData.current.uvi > 11) {
+            todaysWeather.innerHTML += `<p class="red-background">UV Index: ${uviData.current.uvi}</p>`;
+          } else if (uviData.current.uvi > 6) {
+            todaysWeather.innerHTML += `<p class="orange-background">UV Index: ${uviData.current.uvi}</p>`;
+          } else if (uviData.current.uvi > 3) {
+            todaysWeather.innerHTML += `<p class="yellow-background">UV Index: ${uviData.current.uvi}</p>`;
+          } else {
+            todaysWeather.innerHTML += `<p class="green-background">UV Index: ${uviData.current.uvi}</p>`;
+          }
         });
     });
 }

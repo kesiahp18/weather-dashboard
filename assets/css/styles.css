@@ -49,6 +49,22 @@
     font-weight: bold;
 }
 
+.red-background {
+    color: red;
+}
+
+.orange-background {
+    color: orange;
+}
+
+.yellow-background {
+    color: yellow;
+}
+
+.green-background {
+    color: green;
+}
+
 #error-message {
     color: rgb(209, 0, 0);
 }
